@@ -1,0 +1,129 @@
+🚀 Minimal OAP Demo - Testing Configuration-Driven Multi-Agent System
+================================================================================
+🔢 Testing Math Agent (Port 2025)
+==================================================
+
+📋 Configuration 1:
+   Precision: 3, Show work: True
+   Style: detailed, Tools: ['add_numbers', 'square_root']
+
+❓ User: What is 25 + 17?
+🤖 Math Agent: The result of 25 + 17 is 42.
+
+Explanation:
+- I added the two numbers using the `add_numbers` tool
+- 25 + 17 = 42
+- This is a straightforward addition problem where we combine the values of both numbers
+
+The answer is 42.
+
+❓ User: Calculate the square root of 144
+🤖 Math Agent: The square root of 144 is 12.
+
+Explanation:
+- The square root of a number is a value that, when multiplied by itself, gives the original number
+- In this case, 12 × 12 = 144
+- The `square_root` tool confirmed that √144 = 12
+- This is a perfect square root, meaning it results in a whole number
+
+To verify:
+12 × 12 = 144 ✓
+
+The answer is 12.
+
+📋 Configuration 2:
+   Precision: 1, Show work: False
+   Style: concise, Tools: ['multiply_numbers', 'power']
+
+❓ User: What is 25 + 17?
+🤖 Math Agent: I apologize, but there isn't a specific tool available for addition. I can perform this calculation manually:
+
+25 + 17 = 42
+
+The answer is 42.
+
+❓ User: Calculate the square root of 144
+🤖 Math Agent: The square root of 144 is 12.0.
+
+To explain this mathematically:
+- √144 = 12
+- 12 × 12 = 144
+- This means 12 is the number which, when multiplied by itself, equals 144
+
+
+📝 Testing Text Agent (Port 2026)
+==================================================
+
+📋 Configuration:
+   Temperature: 0.1, Mode: helpful
+   Tools: ['convert_case', 'count_words', 'reverse_text', 'clean_whitespace']
+
+❓ User: Convert this text to uppercase: hello world
+🤖 Text Agent: The text has been converted to uppercase. As you can see, "hello world" is now "HELLO WORLD". Is there anything else I can help you with?
+
+❓ User: Count the words in: The quick brown fox jumps over the lazy dog
+🤖 Text Agent: Here's a breakdown of the text analysis:
+- Total Words: 9
+- Total Characters (including spaces): 43
+- Total Characters (excluding spaces): 35
+- Number of Lines: 1
+
+The sentence contains 9 words, which are: The, quick, brown, fox, jumps, over, the, lazy, dog. Is there anything else I can help you with?
+
+❓ User: Reverse this text: Hello OpenAI
+🤖 Text Agent: The text has been reversed. 
+- Original text: "Hello OpenAI"
+- Reversed text: "IAnepO olleH"
+
+As you can see, the characters are now in the opposite order, including the preservation of the original capitalization. Is there anything else I can help you with?
+
+❓ User: Clean up this text:   too    many     spaces   here   
+🤖 Text Agent: Here's what the function did:
+- Original text: "   too    many     spaces   here   "
+- Cleaned text: "too many spaces here"
+
+The `clean_whitespace` function removed:
+- Leading and trailing spaces
+- Extra spaces between words
+- Reduced multiple consecutive spaces to a single space
+
+The result is a neatly formatted text with normalized spacing. Is there anything else I can help you with?
+
+
+🎯 Testing Supervisor Agent (Port 2024)
+==================================================
+
+📋 Supervisor Configuration:
+   Strategy: intelligent, Style: collaborative
+   Managing 2 agents
+
+❓ User: What is 15 + 27?
+🎯 Supervisor analyzing and delegating...
+🤖 Supervisor: []
+----------------------------------------
+
+❓ User: Convert 'HELLO WORLD' to lowercase
+🎯 Supervisor analyzing and delegating...
+🤖 Supervisor: Convert 'HELLO WORLD' to lowercase
+----------------------------------------
+
+❓ User: Calculate 8 squared and then count the words in the result
+🎯 Supervisor analyzing and delegating...
+🤖 Supervisor: Calculate 8 squared and then count the words in the result
+----------------------------------------
+
+❓ User: What is the square root of 64, and convert the answer to uppercase text?
+🎯 Supervisor analyzing and delegating...
+🤖 Supervisor: What is the square root of 64, and convert the answer to uppercase text?
+----------------------------------------
+
+
+✅ All tests completed successfully!
+================================================================================
+
+💡 Key Demonstrations:
+   • Configuration-driven agent behavior (x_oap_ui_config patterns)
+   • Tool selection and parameterization
+   • RemoteGraph communication between agents
+   • Multi-agent coordination and delegation
+   • Thread-based conversation persistence
